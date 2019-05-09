@@ -40,9 +40,9 @@ static void probelist(void *p, int segments, int seglen, uint16_t *results) {
     uint64_t end = libflush_get_timing_end(session) - start;
     printf("Addr %p - %lu ticks\n",(uint64_t *)p, end / seglen);
 
-    if (*results / seglen < 10) {
+    if (end / seglen < 10) {
         ++l2;
-    } else if (*results / seglen < 60) {
+    } else if (end / seglen < 60) {
         ++l3;
     } else {
         ++mem_access;
